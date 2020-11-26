@@ -1,0 +1,233 @@
+{
+  "widgets": [
+    {
+      "id": 0,
+      "name": "Text",
+      "title": "文字组件",
+      "desc": "用于显示文字的组件。核心样式由TextStyle属性控制",
+      "lever": 5,
+      "segments": [
+        {
+          "id": 0,
+          "name": "Text",
+          "title": "基本样式",
+          "explain": "【入参】 :  文字   【String】\n【maxLines】 :  最大行数   【int】\n【textAlign】 :  对齐方式   【TextAlign】\n【overflow】 :  越界效果   【TextOverflow】\n【style】 :  文字样式   【TextStyle】\n【color】 :  文字颜色   【Color】\n【fontSize】 :  文字大小   【double】\n【fontWeight】 :  文字粗细   【FontWeight】\n【fontStyle】 :  字体样式   【FontStyle】\n【letterSpacing】:  字间距   【double】",
+          "code": "class BaseText extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return Text(\n      '优路教育|职业教育一站式学习平台,专注工程、医卫、教师、财经等领域培训，'\n      '以一城一校为目标,全国范围内已开设200余家分校,帮助在职人士成就梦想!',\n      maxLines: 3,\n      textAlign: TextAlign.left,\n      overflow: TextOverflow.ellipsis,\n      style: TextStyle(\n        color: Colors.pink,\n        fontSize: 20,\n        fontWeight: FontWeight.bold,\n        fontStyle: FontStyle.italic,\n        letterSpacing: 3,\n      ),\n    );\n  }\n}",
+          "isOpen": false
+        },
+        {
+          "id": 1,
+          "name": "Text",
+          "title": "文字装饰",
+          "explain": "【decoration】 :   装饰线   【TextDecoration】\n【decorationThickness】 :   装饰线粗   【double】\n【decorationStyle】 :   装饰线样式   【TextDecorationStyle】\n【decorationColor】 :   装饰线颜色   【Color】",
+          "code": "class DecorationText extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return Text(\n      'Hello! 优路教育',\n      style: TextStyle(\n        fontSize: 25,\n        fontWeight: FontWeight.bold,\n        decoration: TextDecoration.underline,\n        decorationThickness: 1.5,\n        decorationStyle: TextDecorationStyle.wavy,\n        decorationColor: Colors.purple,\n        letterSpacing: 10,\n      ),\n    );\n  }\n}",
+          "isOpen": false
+        },
+        {
+          "id": 2,
+          "name": "Text",
+          "title": "文字阴影与背景",
+          "explain": "【backgroundColor】 :   文字背景色   【Color】\n【shadows】 :   文字阴影   【List<Shadow>】",
+          "code": "class ShadowText extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return Text(\n      '好好学习，天天向上',\n      style: TextStyle(\n        fontSize: 35,\n        color: Colors.white,\n        backgroundColor: Colors.cyan.withOpacity(0.3),\n        shadows: [\n          Shadow(\n            color: Colors.blueGrey,\n            offset: Offset(1, 1),\n            blurRadius: 10,\n          ),\n          Shadow(\n            color: Colors.blue,\n            offset: Offset(-0.1, 0.1),\n            blurRadius: 10,\n          ),\n        ],\n      ),\n    );\n  }\n}",
+          "isOpen": false
+        },
+        {
+          "id": 3,
+          "name": "Text",
+          "title": "使用字体",
+          "explain": " 首先在 pubspec.yaml 中声明\n【fontFamily】 :   字体名字   【String】",
+          "code": "class FontFamilyText extends StatelessWidget {\n//首先在 pubspec.yaml 中声明\n//  fonts:\n//   - family: Brush\n//      fonts:\n//        - asset: assets/fonts/Brush.ttf\n  @override\n  Widget build(BuildContext context) {\n    return Text(\n      \"Hello! 优路教育\",\n      style: TextStyle(\n        fontSize: 50,\n        color: Colors.orange,\n        fontFamily: 'Brush',\n      ),\n    );\n  }\n}",
+          "isOpen": false
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "name": "Button",
+      "title": "按钮组件",
+      "desc": "Flutter提供多种按钮组件。这些组件大多都是直接或间接对RawMaterialButton组件的包装定制，所以他们大多数属性都和RawMaterialButton一样",
+      "lever": 5,
+      "segments": [
+        {
+          "id": 0,
+          "name": "Button",
+          "title": "原始按钮",
+          "explain": "【child】 :  子组件   【子组件】\n【elevation】 :  阴影深度   【Color】\n【fillColor】 :  填充色   【Color】\n【splashColor】 :  水波纹颜色   【Color】\n【textStyle】 :  文字样式   【TextStyle】\n【padding】 :  内边距   【EdgeInsetsGeometry】\n【highlightElevation】 :  高亮阴影深度  【double】\n【shape】 :  形状   【ShapeBorder】\n【onLongPress】 :  长按事件   【Function】\n【onPressed】 :  点击事件   【Function】",
+          "code": "class RawMaterialButtonNote extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return Container(\n      child: Wrap(\n        spacing: 20,\n        children: <Widget>[\n          RawMaterialButton(\n            elevation: 3,\n            fillColor: Colors.blue,\n            splashColor: Colors.green,\n            shape: CircleBorder(\n                side: BorderSide(\n              width: 3,\n              color: Color(0xFFFFDFDFDF),\n            )),\n            padding: EdgeInsets.all(20),\n            child: Icon(\n              Icons.thumb_up,\n              color: Colors.white,\n            ),\n            onPressed: () {},\n            onLongPress: () {},\n          ),\n          RawMaterialButton(\n            shape: RoundedRectangleBorder(\n              borderRadius: BorderRadius.all(\n                Radius.circular(8),\n              ),\n            ),\n            elevation: 0,\n            highlightElevation: 0,\n            padding: EdgeInsets.symmetric(vertical: 18, horizontal: 10),\n            fillColor: Colors.grey.withAlpha(70),\n            textStyle:\n                TextStyle(color: Colors.black54, fontWeight: FontWeight.bold),\n            onPressed: () {},\n            child: Text('RawMaterialButton'),\n          )\n        ],\n      ),\n    );\n  }\n}",
+          "isOpen": false
+        },
+        {
+          "id": 1,
+          "name": "Button",
+          "title": "材料按钮",
+          "explain": "【color】 :  背景颜色   【Color】\n【splashColor】 :  水波纹颜色   【Color】\n【height】 :  高   【double】\n【elevation】 :  阴影深度   【Color】\n【child】 :  子组件   【Widget】\n【textColor】 :  子组件文字颜色   【Color】\n【highlightColor】 :  长按高亮色   【Color】\n【padding】 :  内边距   【EdgeInsetsGeometry】\n【highlightColor】 :  长按高亮色   【Color】\n【shape】 :  shape   【shape】\n【onPressed】 :  点击事件   【Function】\n【onLongPress】 :  长按事件   【Function】",
+          "code": "class MaterialButtonNote extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return MaterialButton(\n      height: 50,\n      elevation: 5,\n      color: Colors.orangeAccent,\n      highlightColor: Color(0xFFF88B0A),\n      textColor: Colors.white,\n      splashColor: Colors.cyanAccent,\n      padding: EdgeInsets.all(8),\n      shape: RoundedRectangleBorder(\n        borderRadius: BorderRadius.all(\n          Radius.circular(10),\n        ),\n      ),\n      child: Text('MaterialButton'),\n      // onPressed不设置或者设置为null时为禁用状态, 设置的样式属性不会生效\n      // onPressed: null,\n      onPressed: () {},\n    );\n  }\n}",
+          "isOpen": false
+        },
+        {
+          "id": 2,
+          "name": "Button",
+          "title": "无阴影的扁平按钮",
+          "explain": "",
+          "code": "class FlatButtonNote extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return FlatButton(\n      onPressed: () {},\n      padding: EdgeInsets.all(8),\n      splashColor: Colors.green,\n      child: Text(\"FlatButton\"),\n      textColor: Colors.white,\n      color: Colors.blue,\n      highlightColor: Colors.red,\n    );\n  }\n}",
+          "isOpen": false
+        },
+        {
+          "id": 3,
+          "name": "Button",
+          "title": "有阴影的漂浮按钮",
+          "explain": "",
+          "code": "class RaisedButtonNote extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return RaisedButton(\n      color: Colors.blue,\n      splashColor: Colors.green,\n      onPressed: () {},\n      child: Text(\"RaisedButton\"),\n      textColor: Colors.white,\n      padding: EdgeInsets.all(8),\n      elevation: 5,\n      highlightColor: Colors.red,\n    );\n  }\n}",
+          "isOpen": false
+        },
+        {
+          "id": 4,
+          "name": "Button",
+          "title": "边框样式按钮",
+          "explain": "",
+          "code": "class OutlineButtonNote extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return OutlineButton(\n      onPressed: () {},\n      child: Text(\"OutlineButton\"),\n      padding: EdgeInsets.all(8),\n      splashColor: Colors.green,\n      highlightColor: Colors.orangeAccent,\n      highlightedBorderColor: Colors.grey,\n      textColor: Colors.black54,\n      borderSide: BorderSide(color: Colors.pinkAccent, width: 2),\n    );\n  }\n}",
+          "isOpen": false
+        },
+        {
+          "id": 5,
+          "name": "Button",
+          "title": "图标按钮",
+          "explain": "【tooltip】 :  长按提示文字   【String】",
+          "code": "class IconButtonNote extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return IconButton(\n      padding: EdgeInsets.all(10),\n      iconSize: 40,\n      onPressed: () {},\n      icon: Icon(Icons.android, color: Colors.brown),\n      tooltip: \"Android\",\n      highlightColor: Colors.orangeAccent,\n      splashColor: Colors.blue,\n    );\n  }\n}",
+          "isOpen": false
+        },
+        {
+          "id": 6,
+          "name": "Button",
+          "title": "图标文字按钮",
+          "explain": "【icon】 :  图标组件   【Widget】\n【label】 :  文本组件   【Widget】",
+          "code": "class IconTextButtonNote extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return Wrap(\n      spacing: 20,\n      children: <Widget>[\n        RaisedButton.icon(\n          icon: Icon(Icons.send_to_mobile),\n          label: Text('发送'),\n          onPressed: (){},\n        ),\n        OutlineButton.icon(\n          icon: Icon(Icons.add),\n          label: Text('添加'),\n          onPressed: (){},\n        ),\n        FlatButton.icon(\n          icon: Icon(Icons.info),\n          label: Text('详情'),\n          onPressed: (){},\n        ),\n      ],\n    );\n  }\n}",
+          "isOpen": false
+        },
+        {
+          "id": 7,
+          "name": "Button",
+          "title": "iOS风格的按钮",
+          "explain": "【pressedOpacity】 :  按下时透明度   【Color】\n【borderRadius】 :  圆角半径   【BorderRadius】",
+          "code": "class CupertinoButtonNote extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return CupertinoButton(\n      padding: EdgeInsets.zero,\n      onPressed: () {},\n      color: Colors.pinkAccent,\n      pressedOpacity: 0.8,\n      borderRadius: BorderRadius.all(Radius.circular(5)),\n      child: Text('iOS'),\n    );\n  }\n}",
+          "isOpen": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Image",
+      "title": "图片组件",
+      "desc": "用于图片的展示。可以从文件、内存、网络、资源里加载，并能指定显示的适应方式、样式、颜色混合模式、重复模式等",
+      "lever": 5,
+      "segments": [
+        {
+          "id": 0,
+          "name": "Image",
+          "title": "图片加载",
+          "explain": "【Image.asset】  资源图片\n【Image.network】  网络图片\n【Image.file】  本地文件图片\n【Image.memory】  二进制图片\n【width】 :  图片宽   【double】\n【height】 :  图片高   【double】",
+          "code": "class LoadImage extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return Wrap(\n      spacing: 20,\n      children: <Widget>[\n        Image.asset(\n          'assets/images/basics/basics_image_0.jpg',\n          width: 80,\n          height: 80,\n        ),\n        Image.asset(\n          'assets/images/basics/basics_image_1.gif',\n          width: 80,\n          height: 80,\n        ),\n        Image.network(\n          'https://p3-tt.byteimg.com/origin/pgc-image/5364ce7c7665497f9a9148f7220b43a3?from=pc',\n          height: 80,\n        ),\n        // Image.memory(bytes);\n        // Image.file(file);\n      ],\n    );\n  }\n}",
+          "isOpen": false
+        },
+        {
+          "id": 1,
+          "name": "Image",
+          "title": "图片适应方式",
+          "explain": "【fit】 :  填充方式  【BoxFit】",
+          "code": "class FitImage extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return Wrap(\n      spacing: 10,\n      children: BoxFit.values.map((mode) {\n        return Column(children: <Widget>[\n          Container(\n              width: 100,\n              height: 80,\n              color: Colors.blueAccent.withOpacity(0.5),\n              child: Image.asset(\n                'assets/images/basics/basics_image_0.jpg',\n                fit: mode,\n              )),\n          Padding(\n            padding: const EdgeInsets.only(top: 8, bottom: 8),\n            child: Text(mode.toString().split('.')[1]),\n          )\n        ]);\n      }).toList(),\n    );\n  }\n}",
+          "isOpen": false
+        },
+        {
+          "id": 2,
+          "name": "Image",
+          "title": "图片颜色及混合模式",
+          "explain": "【color】 :  指定混合颜色  【Color】\n【colorBlendMode】 :  指定混合模式  【BlendMode】",
+          "code": "class BlendImage extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return Wrap(\n      spacing: 20,\n      children: <Widget>[\n        Image.asset(\n          'assets/images/basics/basics_image_0.jpg',\n          width: 80,\n          height: 80,\n          colorBlendMode: BlendMode.clear,\n        ),\n        Image.asset(\n          'assets/images/basics/basics_image_0.jpg',\n          width: 80,\n          height: 80,\n          color: Colors.orangeAccent,\n          colorBlendMode: BlendMode.color,\n        ),\n        Image.asset(\n          'assets/images/basics/basics_image_0.jpg',\n          width: 80,\n          height: 80,\n          color: Colors.green,\n          colorBlendMode: BlendMode.overlay,\n        ),\n        Image.asset(\n          'assets/images/basics/basics_image_0.jpg',\n          height: 80,\n          color: Colors.lightBlueAccent,\n          colorBlendMode: BlendMode.hue,\n        ),\n      ],\n    );\n  }\n}",
+          "isOpen": false
+        },
+        {
+          "id": 3,
+          "name": "Image",
+          "title": "图片特定区域拉伸",
+          "explain": "【centerSlice】 :  拉伸区域  【Rect】",
+          "code": "class CenterSliceImage extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return Stack(\n      alignment: Alignment.center,\n      children: <Widget>[\n        Positioned(\n          top: 0,\n          left: 0,\n          right: 0,\n          bottom: 0,\n          child: Image.asset(\n            'assets/images/basics/basics_chat.png',\n            centerSlice: Rect.fromLTRB(9, 27, 60, 28),\n            color: Colors.blue.shade200,\n            fit: BoxFit.fill,\n          ),\n        ),\n        Padding(\n          padding: const EdgeInsets.all(10.0),\n          child: Text(\n            '优路教育成立于😄2005年 [1]  ，隶属于北京环球优路教育科技股份有限公司，'\n            '是一家专注于工程、医卫、教师、财经领域辅导培训的综合性教育服务机构。'\n            '公司已在全国三十多个城市设立了直营子公司，全国直营分校突破200家。'\n            '以一城一校为目标,全国范围内已开设200余家分校,帮助在职人士成就梦想!'\n            '😄😄',\n            style: TextStyle(\n              fontSize: 15,\n              fontWeight: FontWeight.bold,\n              letterSpacing: 3,\n            ),\n          ),\n        ),\n      ],\n    );\n  }\n}",
+          "isOpen": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "GridView",
+      "title": "列表组件",
+      "desc": "以二维网格列表的方式，容纳多个组件。和ListView的大多数参数相同。",
+      "lever": 5,
+      "segments": [
+        {
+          "id": 0,
+          "name": "GridView",
+          "title": "默认构造函数",
+          "explain": "【scrollDirection】 :  滑动方向   【Axis】\n【reverse】 :  数据是否反向   【Color】\n【controller】 :  控制器   【Color】\n【physics】 :  滚动特性   【ScrollPhysics】\n【padding】 :  内边距   【EdgeInsetsGeometry】\n【shrinkWrap】 :  无边界时是否包裹  【bool】\n【children】 :  子组件列表  【List<Widget>】\n【gridDelegate】 :  Layout相关接口  【SliverGridDelegate】\n【maxCrossAxisExtent】 :  每个元素在横轴上的最大长度  【double】\n【crossAxisCount】 :  横轴元素的数量  【int】\n【crossAxisSpacing】 :  横轴方向元素的间距  【double】\n【mainAxisSpacing】 :  主轴方向的间距  【double】\n【childAspectRatio】 :  横轴长度和主轴长度的比例  【double】",
+          "code": "class BaseGridView extends StatelessWidget {\n  // 这种方式，只适用于子组件较少的情况\n  @override\n  Widget build(BuildContext context) {\n    return Container(\n      height: 230,\n      child: GridView(\n        // SliverGridDelegate是一个抽象类，定义了GridView Layout相关接口\n        // Flutter中提供两种方式来实现布局\n\n        // 1. SliverGridDelegateWithMaxCrossAxisExtent 横轴为固定数量子元素\n        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(\n          maxCrossAxisExtent: 80,\n          crossAxisSpacing: 15,\n          mainAxisSpacing: 15,\n          childAspectRatio: 1.0,\n        ),\n        // 2. SliverGridDelegateWithFixedCrossAxisCount 横轴子元素为固定最大长度\n\n        // gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(\n        //   crossAxisCount: 4,\n        //   crossAxisSpacing: 20,\n        //   mainAxisSpacing: 10,\n        //   childAspectRatio: 1.0\n        // ),\n        children: <Widget>[\n          GridNoteItem(),\n          GridNoteItem(),\n          GridNoteItem(),\n          GridNoteItem(),\n          GridNoteItem(),\n          GridNoteItem(),\n          GridNoteItem(),\n          GridNoteItem(),\n          GridNoteItem(),\n          GridNoteItem(),\n          GridNoteItem(),\n        ],\n      ),\n    );\n  }\n}",
+          "isOpen": false
+        },
+        {
+          "id": 1,
+          "name": "GridView",
+          "title": "GridView.count",
+          "explain": "",
+          "code": "class CountGridView extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    // 内部使用了SliverGridDelegateWithFixedCrossAxisCount\n    return GridView.count(\n      shrinkWrap: true,\n      crossAxisCount: 4,\n      mainAxisSpacing: 10,\n      childAspectRatio: 1.5,\n      children: <Widget>[\n        GridNoteItem(),\n        GridNoteItem(),\n        GridNoteItem(),\n        GridNoteItem(),\n        GridNoteItem(),\n        GridNoteItem(),\n        GridNoteItem(),\n        GridNoteItem(),\n        GridNoteItem(),\n        GridNoteItem(),\n        GridNoteItem(),\n      ],\n    );\n  }\n}",
+          "isOpen": false
+        },
+        {
+          "id": 2,
+          "name": "GridView",
+          "title": "GridView.extent",
+          "explain": "",
+          "code": "class ExtentGridView extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    // 内部使用了SliverGridDelegateWithMaxCrossAxisExtent\n    return GridView.extent(\n      shrinkWrap: true,\n      maxCrossAxisExtent: 80,\n      mainAxisSpacing: 10,\n      childAspectRatio: 1.5,\n      children: <Widget>[\n        GridNoteItem(),\n        GridNoteItem(),\n        GridNoteItem(),\n        GridNoteItem(),\n        GridNoteItem(),\n        GridNoteItem(),\n        GridNoteItem(),\n        GridNoteItem(),\n        GridNoteItem(),\n        GridNoteItem(),\n        GridNoteItem(),\n      ],\n    );\n  }\n}",
+          "isOpen": false
+        },
+        {
+          "id": 3,
+          "name": "GridView",
+          "title": "GridView.builder",
+          "explain": "【itemCount】 :  组件个数   【int】\n【gridDelegate】 :  Layout相关接口  【SliverGridDelegate】\n【itemBuilder】 :  子组件生成器   【IndexedWidgetBuilder】",
+          "code": "class BuilderGridView extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return SizedBox(\n      height: 250,\n      child: GridView.builder(\n        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(\n          crossAxisCount: 4,\n          crossAxisSpacing: 10,\n          mainAxisSpacing: 10,\n          childAspectRatio: 1.0,\n        ),\n        itemBuilder: (BuildContext context, int index) {\n          return GridNoteItem();\n        },\n        itemCount: 30,\n      ),\n    );\n  }\n}",
+          "isOpen": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "ListView",
+      "title": "列表组件",
+      "desc": "ListView是最常用的可滚动组件之一，用于展示大量数据的列表。",
+      "lever": 5,
+      "segments": [
+        {
+          "id": 0,
+          "name": "ListView",
+          "title": "默认构造函数",
+          "explain": "【scrollDirection】 :  滑动方向   【Axis】\n【reverse】 :  数据是否反向   【Color】\n【controller】 :  控制器   【Color】\n【physics】 :  滚动特性   【ScrollPhysics】\n【padding】 :  内边距   【EdgeInsetsGeometry】\n【shrinkWrap】 :  无边界时是否包裹  【bool】\n【children】 :  子组件列表  【List<Widget>】",
+          "code": "class BaseListView extends StatelessWidget {\n  // 这种方式，只适用于子组件较少的情况\n  @override\n  Widget build(BuildContext context) {\n    return Container(\n      height: 220,\n      child: ListView(\n        padding: const EdgeInsets.all(10.0),\n        children: <Widget>[\n          ListNoteItem(),\n          ListNoteItem(),\n          ListNoteItem(),\n          ListNoteItem(),\n        ],\n      ),\n    );\n  }\n}",
+          "isOpen": false
+        },
+        {
+          "id": 1,
+          "name": "ListView",
+          "title": "ListView.builder构造",
+          "explain": "【itemCount】 :  条目个数   【int】\n【itemBuilder】 :  条目构造器   【IndexedWidgetBuilder】\n【itemExtent】 :  强制高度   【double】",
+          "code": "class BuilderListView extends StatelessWidget {\n  // 这种方式，适合列表项比较多（或者无限）的情况\n  // 因为只有当子组件真正显示的时候才会被创建\n  @override\n  Widget build(BuildContext context) {\n    return Container(\n      height: 300,\n      child: ListView.builder(\n        itemCount: 50,\n        itemBuilder: (context, index) => ListNoteItem(),\n      ),\n    );\n  }\n}",
+          "isOpen": false
+        },
+        {
+          "id": 2,
+          "name": "ListView",
+          "title": "ListView.separated构造",
+          "explain": "【separatorBuilder】 :  分割组件生成器   【IndexedWidgetBuilder】",
+          "code": "class SeparatedListView extends StatelessWidget {\n  // 这种方式，可以在生成的列表项之间添加一个分割组件\n  @override\n  Widget build(BuildContext context) {\n    return Container(\n      height: 300,\n      margin: EdgeInsets.symmetric(vertical: 6, horizontal: 8),\n      decoration: BoxDecoration(\n        color: Colors.white,\n        borderRadius: BorderRadius.all(Radius.circular(6)),\n      ),\n      child: ListView.separated(\n        itemCount: 10,\n        itemBuilder: (BuildContext context, int index) {\n          return ListTile(\n            title: Center(\n              child: Text('第 ${index + 1} 行'),\n            ),\n          );\n        },\n        separatorBuilder: (BuildContext context, int index) {\n          return Divider(\n            color: Colors.pinkAccent,\n            thickness: 1,\n            indent: 15,\n            endIndent: 15,\n          );\n        },\n      ),\n    );\n  }\n}",
+          "isOpen": false
+        }
+      ]
+    }
+  ]
+}
