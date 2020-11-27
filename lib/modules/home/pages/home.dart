@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:yl_flutter_notes_test/modules/home/models/category.dart';
 import 'package:yl_flutter_notes_test/modules/utils/color_utils.dart';
 import 'package:yl_flutter_notes_test/modules/utils/yl_utils.dart';
+import 'package:yl_flutter_notes_test/routers.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -82,7 +83,7 @@ class _CategoryItemState extends State<_CategoryItem> {
         shadowColor: Colors.black12,
         child: InkWell(
           onTap: () {
-            YlUtils.toast(widget.category.title);
+            _openCategoryPage(widget.category);
           },
           child: Container(
             height: 65,
@@ -128,58 +129,63 @@ class _CategoryItemState extends State<_CategoryItem> {
       ),
     );
   }
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-  }
-
-  @override
-  void didUpdateWidget(_CategoryItem oldWidget) {
-    // TODO: implement didUpdateWidget
-    super.didUpdateWidget(oldWidget);
-  }
-
-  @override
-  void didChangeDependencies() {
-    // TODO: implement didChangeDependencies
-    super.didChangeDependencies();
-  }
 }
 
-class _TitleWidget extends StatelessWidget {
-  final String title;
-  final String icon;
-
-  const _TitleWidget({
-    Key key,
-    this.title,
-    this.icon,
-  })  : assert(title != null),
-        super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 2),
-      child: ListTile(
-        title: Text(
-          title,
-          style: TextStyle(
-            fontSize: 22,
-            color: Colors.red,
-            fontWeight: FontWeight.w700,
-          ),
-        ),
-      ),
-    );
+// 点击事件统一处理
+void _openCategoryPage(CategoryModel category) {
+  if (category == null) {
+    return;
+  }
+  switch (category.type) {
+    case CategoryType.beginner_ios:
+      // TODO: Handle this case.
+      RouterUtils.launchURL(
+          'https://flutter.cn/docs/get-started/flutter-for/ios-devs');
+      break;
+    case CategoryType.beginner_android:
+      // TODO: Handle this case.
+      RouterUtils.launchURL(
+          'https://flutter.cn/docs/get-started/flutter-for/android-devs');
+      break;
+    case CategoryType.basics_widget:
+      // TODO: Handle this case.
+      break;
+    case CategoryType.basics_layout:
+      // TODO: Handle this case.
+      break;
+    case CategoryType.basics_func:
+      // TODO: Handle this case.
+      break;
+    case CategoryType.basics_http:
+      // TODO: Handle this case.
+      break;
+    case CategoryType.basics_json:
+      // TODO: Handle this case.
+      break;
+    case CategoryType.advance_state:
+      // TODO: Handle this case.
+      break;
+    case CategoryType.advance_async:
+      // TODO: Handle this case.
+      break;
+    case CategoryType.advance_mixing:
+      // TODO: Handle this case.
+      break;
+    case CategoryType.advance_pin:
+      // TODO: Handle this case.
+      break;
+    case CategoryType.advance_tips:
+      // TODO: Handle this case.
+      break;
+    case CategoryType.project_struct:
+      // TODO: Handle this case.
+      break;
+    case CategoryType.project_login:
+      // TODO: Handle this case.
+      break;
+    case CategoryType.project_business:
+      // TODO: Handle this case.
+      break;
   }
 }
 

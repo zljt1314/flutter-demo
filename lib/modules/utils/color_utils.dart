@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-
 /// [extension]关键字是在color类的基础上进行扩展
 extension ColorUtils on Color {
   static Color random() {
